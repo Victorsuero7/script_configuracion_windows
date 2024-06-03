@@ -1,5 +1,5 @@
-# Array con los IDs de las aplicaciones que deseas desinstalar
-$appIDs = @(
+$uninstall_apps = @(
+"MicrosoftWindows.CrossDevice_cw5n1h2txyewy",
 "Clipchamp.Clipchamp_yxz26nhyzhsrt",
 "Microsoft.BingSearch_8wekyb3d8bbwe",
 "Microsoft.GamingApp_8wekyb3d8bbwe",
@@ -23,20 +23,25 @@ $appIDs = @(
 "MicrosoftWindows.Client.WebExperience_cw5n1h2txyewy",
 "MicrosoftCorporationII.QuickAssist_8wekyb3d8bbwe",
 "microsoft.windowscommunicationsapps_8wekyb3d8bbwe"
-    # Agrega más IDs según sea necesario
 )
 
-foreach ($appID in $appIDs) {
-    try {
-        # Ejecuta el comando winget para desinstalar la aplicación
-        $wingetProcess = Start-Process winget -ArgumentList "install --id $appID --silent" -NoNewWindow -PassThru -Wait
-        
-        if ($wingetProcess.ExitCode -eq 0) {
-            Write-Output "Aplicación con ID '$appID' desinstalada exitosamente."
-        } else {
-            Write-Output "Error al intentar desinstalar la aplicación con ID '$appID'. Código de salida: $($wingetProcess.ExitCode)"
-        }
-    } catch {
-        Write-Output "Error al intentar desinstalar la aplicación con ID '$appID': $_"
-    }
+foreach ($app in $uninstall_apps){
+    Write-Host "--------------------$app-------------------"
+    $command = Start-Process winget "uninstall $app --silent" -NoNewWindow -Wait -PassThru
 }
+
+
+$install_apps = @(
+    "Microsoft.VisualStudioCode",
+    "Git.Git",
+    "7zip.7zip",
+    "google.chrome",
+    "JanDeDobbeleer.OhMyPosh"
+    )
+foreach ($app in $install_apps){
+    Write-Host "--------------------$app-------------------"
+    $command = Start-Process winget "install $app --silent --accept-package-agreements  --accept-source-agreements" -NoNewWindow -Wait -PassThru
+    }
+
+
+Start-Process winget "upgrade --all --accept-package-agreements  --accept-source-agreements" -NoNewWindow -Wait -PassThru
