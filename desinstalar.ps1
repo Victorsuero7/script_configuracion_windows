@@ -1,4 +1,7 @@
 $uninstall_apps = @(
+#"Microsoft.XboxDevices_8wekyb3d8bbwe",
+"Microsoft.GetHelp_8wekyb3d8bbwe",
+"Microsoft.MicrosoftStickyNotes_8wekyb3d8bbwe",
 "MicrosoftWindows.CrossDevice_cw5n1h2txyewy",
 "Clipchamp.Clipchamp_yxz26nhyzhsrt",
 "Microsoft.BingSearch_8wekyb3d8bbwe",
@@ -25,6 +28,8 @@ $uninstall_apps = @(
 "microsoft.windowscommunicationsapps_8wekyb3d8bbwe"
 )
 
+Start-Process winget "source update" -NoNewWindow -Wait -PassThru
+
 foreach ($app in $uninstall_apps){
     Write-Host "--------------------$app-------------------"
     $command = Start-Process winget "uninstall $app --silent" -NoNewWindow -Wait -PassThru
@@ -35,8 +40,7 @@ $install_apps = @(
     "Microsoft.VisualStudioCode",
     "Git.Git",
     "7zip.7zip",
-    "google.chrome",
-    "JanDeDobbeleer.OhMyPosh"
+    "google.chrome"
     )
 foreach ($app in $install_apps){
     Write-Host "--------------------$app-------------------"
