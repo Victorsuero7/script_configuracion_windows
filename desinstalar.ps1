@@ -49,3 +49,6 @@ foreach ($app in $install_apps){
 
 
 Start-Process winget "upgrade --all --accept-package-agreements  --accept-source-agreements" -NoNewWindow -Wait -PassThru
+
+Start-Process git "config --global user.name 'vic'" -NoNewWindow -Wait -PassThru
+Start-Process git "config --global user.email 'victorsuero98@gmail.com'" -NoNewWindow -Wait -PassThru
