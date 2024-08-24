@@ -25,7 +25,17 @@ $uninstall_apps = @(
 "Microsoft.XboxSpeechToTextOverlay_8wekyb3d8bbwe",
 "MicrosoftWindows.Client.WebExperience_cw5n1h2txyewy",
 "MicrosoftCorporationII.QuickAssist_8wekyb3d8bbwe",
-"microsoft.windowscommunicationsapps_8wekyb3d8bbwe"
+"microsoft.windowscommunicationsapps_8wekyb3d8bbwe",
+"MSIX\Microsoft.BingWeather_1.0.6.0_x64__8wekyb3d8bbwe",
+"MSIX\Microsoft.MicrosoftSolitaireCollection_4.12.3171.0_x64__8wekyb3d8bbwe",
+"MSIX\Microsoft.OutlookForWindows_1.2024.814.200_x64__8wekyb3d8bbwe",
+"MSIX\Microsoft.Paint_11.2404.1020.0_x64__8wekyb3d8bbwe",
+"MSIX\Microsoft.PowerAutomateDesktop_1.0.219.0_x64__8wekyb3d8bbwe",
+"MSIX\Microsoft.Todos_0.54.42772.0_x64__8wekyb3d8bbwe",
+"Microsoft.Edge",
+"ARP\Machine\X86\Microsoft Edge Update",
+"Microsoft.EdgeWebView2Runtime",
+"MSIX\Microsoft.MicrosoftEdge.Stable_128.0.2739.42_neutral__8wekyb3d8bbwe"
 )
 
 Start-Process winget "source update" -NoNewWindow -Wait -PassThru
